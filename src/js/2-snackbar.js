@@ -55,4 +55,4 @@ promise({ delay,  shouldFulfilled })
 }
 else {
     console.error('Form not found');
-}
+};
