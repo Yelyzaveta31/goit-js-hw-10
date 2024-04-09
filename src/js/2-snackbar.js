@@ -5,12 +5,9 @@ import iconSuccess from '../img/icon-success.svg';
 import iconError from '../img/icon-error.svg';
 
 const form = document.querySelector('.form');
-const inputs = document.querySelectorAll('input');
-
 
 const promise = ({ delay, shouldFulfilled }) => {
     return new Promise((resolve, reject) => {
-    if (delay >= 0) {
     setTimeout(() => {
         if ( shouldFulfilled) {
             resolve (delay);
@@ -18,13 +15,13 @@ const promise = ({ delay, shouldFulfilled }) => {
             reject(delay);
         }
         }, delay);
-} else { 
-   reject("The number cannot be negative");
-}
+ 
 });
 };
 
-form.addEventListener('submit', event => {
+
+if (form) {
+    form.addEventListener('submit', event => {
     event.preventDefault();
 
     const delay = parseInt(form.elements.delay.value);
@@ -54,4 +51,8 @@ promise({ delay,  shouldFulfilled })
         position: 'topRight',
 }); 
 });
-});
+    });
+}
+else {
+    console.error('Form not found');
+}

@@ -58,7 +58,7 @@ const checkData = data => {
     const setValues = () => {
         const diff = userSelectedDate.getTime() - Date.now();
         let { days, hours, minutes, seconds } = convertMs(diff);
-        if (days < 0 && hours < 0 && minutes < 0 && seconds < 0) {
+        if (days < 0 || hours < 0 || minutes < 0 || seconds < 0) {
 return null;          
         }
 
@@ -71,11 +71,14 @@ return null;
 
    const stop = intervalId => {
     clearInterval(intervalId);
+    inputDatetime.removeAttribute('disabled');
+    buttonStart.removeAttribute('disabled');
    }
 
    const start = () => {
     inputDatetime.setAttribute('disabled', true);
     buttonStart.setAttribute('disabled', true);
+    buttonStart.removeEventListener('click', start);
 
     setValues();
     const timerIntervalId = setInterval(() => {
