@@ -1,5 +1,5 @@
+import iziToast from 'izitoast';
+import iconSuccess from '../img/icon-success.svg';
+import iconError from '../img/icon-error.svg';
 
-import iziToast from "izitoast";
-
-import "izitoast/dist/css/iziToast.min.css";
 
