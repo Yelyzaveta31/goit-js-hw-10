@@ -1,7 +1,6 @@
 
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
-
 import izitoast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 import iconError from '../img/icon-error.svg';
@@ -31,7 +30,7 @@ const options = {
   };
   flatpickr(inputDatetime, options);
 
-  const iziToastOptions = {
+  const izitoastOptions = {
     title: 'Error',
     message: 'Please choose a date in the future',
     backgroundColor: 'red',
@@ -47,7 +46,7 @@ const checkData = data => {
         buttonStart.removeAttribute('disabled');
     } else {
         buttonStart.setAttribute('disabled', true);
-        izitoast.error (iziToastOptions);
+        izitoast.error (izitoastOptions);
     }
 };
 
